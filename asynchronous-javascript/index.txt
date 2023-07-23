@@ -1,0 +1,14 @@
+JS is synchronous , single-threaded , blocking language
+
+Means it will execute line by line 
+
+So it start using functionalities provided by browser or node , to ask asynchronousally , also called as
+browser API's 
+
+So if a piece of code is taking a larger ammount of time to execute , then browser will execute it , 
+and javascript will go to next code
+
+                                    //Promise//
+
+Promises are used to deal with asynchronous code in js, it solves the problem of callback-hell
+A promise can have 3 states pending, resolve , reject

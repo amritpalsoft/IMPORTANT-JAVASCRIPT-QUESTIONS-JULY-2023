@@ -1,0 +1,26 @@
+in JavaScript execution we have following things
+
+1. CallStack
+2. Heap Memory
+3. Node/Browser API 
+4. Event Loop
+5. Event Queue/Task Queue
+6. Microtask Queue
+
+The main execution occurs in call stack only ,and it is single threaded, blocking, synchronous
+
+When our code executes, if there is some asynchronous code , which need time to execute , it is transferred to 
+node/browser api , and JS engine execute next line code 
+
+Then browser/node api will do these asynchronous task , and after it is completed , it will transfer 
+it to event queue and it waits for CallStack to be empty , this is handled by Event Loop 
+
+But their are some special functions which returns Promises , so those are not transferred to event queue,
+as the code transferred to node/browser api , it will execute .then & .catch line , and put callback functions
+to heap Memory and a variable for result is created , once the operation is executed in browser/node api, it transfer
+that result to Heap memory variable , where it runs the callback function , and then final result
+is transferred to Microtask queue, and now once the CallStack is empty , event loop will transfer this code to 
+CallStack,
+
+Now if we have 1 function in Microtask queue ans 1 in Event queue , so Event loop will give 
+preference to Microtask queue.
